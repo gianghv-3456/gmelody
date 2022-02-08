@@ -1,4 +1,4 @@
-package com.sun.structure_android
+package com.sun.mvp
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.sun.structure_android
+package com.sun.mvp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

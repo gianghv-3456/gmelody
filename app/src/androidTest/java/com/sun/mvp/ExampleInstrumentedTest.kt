@@ -1,4 +1,4 @@
-package com.sun.structure_android
+package com.sun.mvp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
