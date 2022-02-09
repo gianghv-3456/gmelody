@@ -1,13 +1,15 @@
-package com.sun.mvp.data.source
+package com.sun.mvp.data.repository.source
 
 import com.sun.mvp.data.model.Movie
-import com.sun.mvp.data.source.remote.OnResultListener
+import com.sun.mvp.data.repository.source.remote.OnResultListener
 
 interface MovieDataSource {
     /**
      * Local
      */
-    interface Local
+    interface Local {
+        fun getMoviesLocal(listener: OnResultListener<MutableList<Movie>>)
+    }
 
     /**
      * Remote

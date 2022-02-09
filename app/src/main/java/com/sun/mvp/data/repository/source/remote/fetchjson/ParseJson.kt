@@ -1,4 +1,4 @@
-package com.sun.mvp.data.source.remote.fetchjson
+package com.sun.mvp.data.repository.source.remote.fetchjson
 
 import com.sun.mvp.data.model.Movie
 import com.sun.mvp.data.model.MovieEntry

@@ -1,4 +1,4 @@
-package com.sun.mvp.data.source.remote
+package com.sun.mvp.data.repository.source.remote
 
 import java.lang.Exception
 

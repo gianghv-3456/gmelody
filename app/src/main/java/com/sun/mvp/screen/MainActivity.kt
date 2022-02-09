@@ -1,10 +1,11 @@
-package com.sun.mvp
+package com.sun.mvp.screen
 
 import android.util.Log
+import com.sun.mvp.R
 import com.sun.mvp.data.model.Movie
 import com.sun.mvp.data.model.MovieEntry
-import com.sun.mvp.data.source.remote.OnResultListener
-import com.sun.mvp.data.source.remote.fetchjson.GetJsonFromUrl
+import com.sun.mvp.data.repository.source.remote.OnResultListener
+import com.sun.mvp.data.repository.source.remote.fetchjson.GetJsonFromUrl
 import com.sun.mvp.utils.Constant
 import com.sun.mvp.utils.base.BaseActivity
 import java.lang.Exception
@@ -30,7 +31,6 @@ class MainActivity : BaseActivity() {
                 override fun onError(exception: Exception?) {
                     Log.d("QQQ", "Error")
                 }
-
             })
     }
 }

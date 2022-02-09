@@ -1,8 +1,8 @@
-package com.sun.mvp.data.source.remote.fetchjson
+package com.sun.mvp.data.repository.source.remote.fetchjson
 
 import android.os.Handler
 import android.os.Looper
-import com.sun.mvp.data.source.remote.OnResultListener
+import com.sun.mvp.data.repository.source.remote.OnResultListener
 import com.sun.mvp.utils.Constant
 import org.json.JSONObject
 import java.io.BufferedReader
