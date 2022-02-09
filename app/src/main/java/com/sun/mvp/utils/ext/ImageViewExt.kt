@@ -10,3 +10,9 @@ fun ImageView.loadImageCircleWithUrl(url: String) {
         .circleCrop()
         .into(this)
 }
+
+fun ImageView.loadImageWithUrl(url: String) {
+    Glide.with(this)
+        .load(Constant.BASE_URL_IMAGE + url)
+        .into(this)
+}

@@ -7,9 +7,11 @@ import com.sun.mvp.data.model.Movie
 import com.sun.mvp.data.repository.MovieRepository
 import com.sun.mvp.data.repository.source.local.MovieLocalDataSource
 import com.sun.mvp.data.repository.source.remote.MovieRemoteDataSource
+import com.sun.mvp.screen.detail.DetailFragment
 import com.sun.mvp.screen.listmovie.adapter.MoviesAdapter
 import com.sun.mvp.utils.OnItemRecyclerViewClickListener
 import com.sun.mvp.utils.base.BaseFragment
+import com.sun.mvp.utils.ext.addFragment
 import kotlinx.android.synthetic.main.fragment_movies.view.*
 import java.lang.Exception
 
@@ -43,11 +45,11 @@ class MoviesFragment : BaseFragment(), MoviesContract.View, OnItemRecyclerViewCl
     }
 
     override fun onError(exception: Exception?) {
-        Toast.makeText(context,exception?.message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, exception?.message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onItemClick(item: Movie?) {
-        Toast.makeText(context,item?.title, Toast.LENGTH_SHORT).show()
+        addFragment(R.id.layoutContainer, DetailFragment.newInstance(item), true)
     }
 
     companion object {

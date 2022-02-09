@@ -63,6 +63,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder?>() {
             mTextViewContent = itemView.findViewById(R.id.textViewContent)
             mImageViewIconMovie = itemView.findViewById(R.id.imageMovie)
             itemView.setOnClickListener(this)
+            listener = itemClickListener
         }
 
         fun bindViewData(movie: Movie) {

@@ -1,3 +1,5 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Structure_Android</string>
+    <string name="ratting" tools:ignore="ExtraTranslation">Ratting:</string>
+    <string name="total_reviews">Total reviews</string>
 </resources>
