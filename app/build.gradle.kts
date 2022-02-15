@@ -3,6 +3,10 @@ plugins {
     kotlin(Plugin.kotlin_android)
 }
 
+buildscript {
+    apply(from = "ktlint.gradle.kts")
+}
+
 android {
     compileSdk = AppConfigs.compile_sdk_version
 
@@ -34,6 +38,8 @@ android {
         jvmTarget = "11"
     }
 }
+
+
 
 dependencies {
     implementation(Deps.core_ktx)

@@ -16,6 +16,8 @@ object Versions {
 
     const val jUnit = "4.13.2"
     const val mockk = "1.12.0"
+
+    const val ktlint = "0.36.0"
 }
 
 object AppConfigs {
@@ -62,4 +64,7 @@ object Deps {
     // Testing
     const val junit = "junit:junit:${Versions.jUnit}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
+
+    // Ktlint
+    const val ktlint = "com.pinterest:ktlint:${Versions.ktlint}"
 }
