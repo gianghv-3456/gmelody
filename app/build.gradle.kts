@@ -1,22 +1,23 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    id(Plugin.android_application)
+    kotlin(Plugin.kotlin_android)
 }
 
 android {
-    compileSdk = 30
+    compileSdk = AppConfigs.compile_sdk_version
 
     defaultConfig {
-        applicationId = "com.sun.structure_android"
-        minSdk = 21
-        targetSdk = 30
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = AppConfigs.application_id
+        minSdk = AppConfigs.min_sdk_version
+        targetSdk = AppConfigs.target_sdk_version
+        versionCode = AppConfigs.version_code
+        versionName = AppConfigs.version_name
     }
 
     buildTypes {
+        getByName("debug") {
+            isTestCoverageEnabled = true
+        }
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
@@ -26,21 +27,20 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
 dependencies {
+    implementation(Deps.core_ktx)
+    implementation(Deps.appcompat)
+    implementation(Deps.material)
+    implementation(Deps.constraint_layout)
 
-    implementation("androidx.core:core-ktx:1.3.2")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("com.google.android.material:material:1.3.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+    testImplementation(Deps.junit)
+    testImplementation(Deps.mockk)
 }
