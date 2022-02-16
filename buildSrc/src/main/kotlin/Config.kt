@@ -14,6 +14,7 @@ object Versions {
     const val navigation = "2.3.5"
     const val koin = "3.1.2"
 
+    const val jacoco = "0.8.7"
     const val jUnit = "4.13.2"
     const val mockk = "1.12.0"
 

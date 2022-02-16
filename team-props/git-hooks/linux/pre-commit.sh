@@ -31,20 +31,20 @@ else
     exit status2
 fi
 
-#echo "Start running unit test"
-#./gradlew testDebugUnitTestCoverage --daemon
-#status3=$?
-#if [[ "$status3" = 0 ]] ; then
-#    echo "*******************************************************"
-#    echo "                 UnitTest successfully                 "
-#    echo "*******************************************************"
-#else
-#    echo "*******************************************************"
-#    echo "                   UnitTest failed                     "
-#    echo "   Please fix the unit test issues before committing   "
-#    echo "*******************************************************"
-#    exit status3
-#fi
+echo "Start running unit test"
+./gradlew testDebugUnitTestCoverage --daemon
+status3=$?
+if [[ "$status3" = 0 ]] ; then
+    echo "*******************************************************"
+    echo "                 UnitTest successfully                 "
+    echo "*******************************************************"
+else
+    echo "*******************************************************"
+    echo "                   UnitTest failed                     "
+    echo "   Please fix the unit test issues before committing   "
+    echo "*******************************************************"
+    exit status3
+fi
 
 # add changed files after run auto format
 git add .
