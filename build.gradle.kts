@@ -1,5 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    apply(from = "$rootDir/team-props/git-hooks.gradle.kts")
+
     repositories {
         google()
         mavenCentral()
