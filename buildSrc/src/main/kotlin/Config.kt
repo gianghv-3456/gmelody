@@ -18,6 +18,7 @@ object Versions {
     const val mockk = "1.12.0"
 
     const val ktlint = "0.36.0"
+    const val detekt = "1.9.1"
 }
 
 object AppConfigs {
@@ -34,9 +35,10 @@ object ClassPath {
     const val kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 }
 
-object Plugin {
+object Plugins {
     const val android_application = "com.android.application"
     const val kotlin_android = "android"
+    const val detekt = "io.gitlab.arturbosch.detekt"
 }
 
 object Deps {

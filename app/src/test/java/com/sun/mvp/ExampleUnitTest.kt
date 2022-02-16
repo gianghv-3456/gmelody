@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:app/src/test/java/com/sun/mvp/ExampleUnitTest.kt
 package com.sun.mvp
+========
+package com.sun.android
+>>>>>>>> d05dca1 (Config detekt):app/src/test/java/com/sun/android/ExampleUnitTest.kt
 
 import org.junit.Assert.*
 import org.junit.Test
