@@ -7,6 +7,7 @@ plugins {
 
 buildscript {
     apply(from = "ktlint.gradle.kts")
+    apply(from = "autodimension.gradle.kts")
 }
 
 android {
@@ -135,6 +136,18 @@ project.afterEvaluate {
                 dependsOn(testTaskName)
             }
         }
+    }
+}
+
+
+tasks {
+    check {
+        dependsOn("ktlintCheck")
+        dependsOn("ktlintFormat")
+    }
+    clean {
+        dependsOn("createDimen")
+        mustRunAfter("createDimen")
     }
 }
 
