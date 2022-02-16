@@ -29,6 +29,8 @@ object AppConfigs {
     const val target_sdk_version = 30 // improve later
     const val version_code = 1
     const val version_name = "1.0"
+    const val version_code_release = 1
+    const val version_name_release = "1.0"
 }
 
 object ClassPath {

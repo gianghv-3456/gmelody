@@ -21,6 +21,21 @@ android {
         versionName = AppConfigs.version_name
     }
 
+    flavorDimensions("appVariant")
+    productFlavors {
+        create("dev") {
+            setDimension("appVariant")
+            applicationIdSuffix = ".dev"
+            resValue("string", "app_name", "Structure-Dev")
+        }
+        create("prd") {
+            setDimension("appVariant")
+            resValue("string", "app_name", "Structure")
+            versionCode = AppConfigs.version_code_release
+            versionName = AppConfigs.version_name_release
+        }
+    }
+
     buildTypes {
         getByName("debug") {
             isTestCoverageEnabled = true
@@ -138,7 +153,6 @@ project.afterEvaluate {
         }
     }
 }
-
 
 tasks {
     check {
