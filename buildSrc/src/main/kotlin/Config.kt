@@ -1,32 +1,32 @@
 
 object Versions {
 
-    const val gradlePlugin = "7.0.4"
-    const val kotlin = "1.6.10"
+    const val gradlePlugin = "7.4.2"
+    const val kotlin = "1.7.20"
 
-    const val coreKtx = "1.6.0"
-    const val appCompat = "1.3.1"
-    const val material = "1.4.0"
-    const val constraintLayout = "2.1.0"
-    const val coreSplashScreen = "1.0.0-beta01"
+    const val coreKtx = "1.9.0"
+    const val appCompat = "1.6.1"
+    const val material = "1.8.0"
+    const val constraintLayout = "2.1.4"
+    const val coreSplashScreen = "1.0.0"
 
-    const val lifecycle = "2.3.1"
-    const val navigation = "2.3.5"
-    const val koin = "3.1.2"
+    const val lifecycle = "2.5"
+    const val navigation = "2.5.3"
+    const val koin = "3.4.0"
 
-    const val jacoco = "0.8.7"
+    const val jacoco = "0.8.9"
     const val jUnit = "4.13.2"
-    const val mockk = "1.12.0"
+    const val mockk = "1.13.2"
 
-    const val ktlint = "0.36.0"
-    const val detekt = "1.9.1"
+    const val ktlint = "0.48.1"
+    const val detekt = "1.22.0"
 }
 
 object AppConfigs {
     const val application_id = "com.sun.structure_android"
-    const val compile_sdk_version = 31
+    const val compile_sdk_version = 33
     const val min_sdk_version = 23
-    const val target_sdk_version = 30 // improve later
+    const val target_sdk_version = 33 // improve later
     const val version_code = 1
     const val version_name = "1.0"
     const val version_code_release = 1
