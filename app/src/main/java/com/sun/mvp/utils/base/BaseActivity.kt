@@ -8,10 +8,8 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutResourceId())
         initView()
-        initData()
     }
 
     abstract fun getLayoutResourceId(): Int
     abstract fun initView()
-    abstract fun initData()
 }

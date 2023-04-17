@@ -19,9 +19,8 @@ class MovieRepository private constructor(
     companion object {
         private var instance: MovieRepository? = null
 
-        fun getInstance(remote: MovieDataSource.Remote, local: MovieDataSource.Local) =
-            synchronized(this) {
-                instance ?: MovieRepository(remote, local).also { instance = it }
-            }
+        fun getInstance(remote: MovieDataSource.Remote, local: MovieDataSource.Local) = synchronized(this) {
+            instance ?: MovieRepository(remote, local).also { instance = it }
+        }
     }
 }

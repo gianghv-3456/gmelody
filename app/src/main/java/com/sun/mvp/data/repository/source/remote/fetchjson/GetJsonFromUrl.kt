@@ -21,7 +21,6 @@ class GetJsonFromUrl<T> constructor(
 
     private val mExecutor: Executor = Executors.newSingleThreadExecutor()
     private val mHandler = Handler(Looper.getMainLooper())
-    private var exception: Exception? = null
     private var data: T? = null
 
     init {
@@ -31,19 +30,15 @@ class GetJsonFromUrl<T> constructor(
     private fun callAPI() {
         mExecutor.execute {
             val responseJson =
-                getJsonFromUrl(urlString + Constant.BASE_API_KEY + Constant.BASE_LANGUAGE)
+                getJsonStringFromUrl(urlString + Constant.BASE_API_KEY + Constant.BASE_LANGUAGE)
             data = ParseDataWithJson().parseJsonToData(JSONObject(responseJson), keyEntity) as? T
             mHandler.post {
-                try {
-                    data?.let { listener.onSuccess(it) }
-                } catch (e: Exception) {
-                    listener.onError(exception)
-                }
+                data?.let { listener.onSuccess(it) }
             }
         }
     }
 
-    private fun getJsonFromUrl(urlString: String): String {
+    private fun getJsonStringFromUrl(urlString: String): String {
         val url = URL(urlString)
         val httpURLConnection = url.openConnection() as? HttpURLConnection
         httpURLConnection?.run {
@@ -70,5 +65,3 @@ class GetJsonFromUrl<T> constructor(
         private const val METHOD_GET = "GET"
     }
 }
-
-

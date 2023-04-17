@@ -1,6 +1,10 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id(Plugins.android_application)
     kotlin(Plugins.kotlin_android)
+    kotlin(Plugins.kotlinApt)
+    id(Plugins.kotlinParcelize)
     id(Plugins.detekt).version(Versions.detekt)
     jacoco
 }
@@ -19,6 +23,19 @@ android {
         targetSdk = AppConfigs.target_sdk_version
         versionCode = AppConfigs.version_code
         versionName = AppConfigs.version_name
+
+        buildConfigField(
+            "String", "API_KEY", gradleLocalProperties(rootDir).getProperty("api_key")
+        )
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    kapt {
+        generateStubs = true
+        useBuildCache = true
     }
 
     flavorDimensions("appVariant")
@@ -43,8 +60,7 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -123,9 +139,7 @@ project.afterEvaluate {
                     fileTree("build/tmp/kotlin-classes/$sourceName").exclude(excludeFiles)
                 )
                 val coverageSourceDirs = arrayListOf(
-                    "src/main/java",
-                    "src/$productFlavorName/java",
-                    "src/$buildTypeName/java"
+                    "src/main/java", "src/$productFlavorName/java", "src/$buildTypeName/java"
                 )
 
                 additionalSourceDirs.setFrom(files(coverageSourceDirs))
@@ -137,8 +151,7 @@ project.afterEvaluate {
                 executionData.setFrom(
                     fileTree(
                         mapOf(
-                            "dir" to layout.buildDirectory,
-                            "includes" to listOf("**/*.exec")
+                            "dir" to layout.buildDirectory, "includes" to listOf("**/*.exec")
                         )
                     )
                 )
@@ -170,6 +183,10 @@ dependencies {
     implementation(Deps.appcompat)
     implementation(Deps.material)
     implementation(Deps.constraint_layout)
+
+    // Glide
+    implementation(Deps.glide_runtime)
+    kapt(Deps.glide_compiler)
 
     testImplementation(Deps.junit)
     testImplementation(Deps.mockk)

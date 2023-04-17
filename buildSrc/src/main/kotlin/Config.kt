@@ -12,13 +12,14 @@ object Versions {
 
     const val lifecycle = "2.5"
     const val navigation = "2.5.3"
+    const val glide = "4.11.0"
     const val koin = "3.4.0"
 
     const val jacoco = "0.8.9"
     const val jUnit = "4.13.2"
     const val mockk = "1.13.2"
 
-    const val ktlint = "0.48.1"
+    const val ktlint = "0.47.0"
     const val detekt = "1.22.0"
 }
 
@@ -41,7 +42,9 @@ object ClassPath {
 object Plugins {
     const val android_application = "com.android.application"
     const val kotlin_android = "android"
+    const val kotlinApt = "kapt"
     const val detekt = "io.gitlab.arturbosch.detekt"
+    const val kotlinParcelize = "kotlin-parcelize"
 }
 
 object Deps {
@@ -60,6 +63,10 @@ object Deps {
     // navigation
     const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+
+    // Glide
+    const val glide_runtime = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
     // koin
     const val koin_core = "io.insert-koin:koin-core:${Versions.koin}"

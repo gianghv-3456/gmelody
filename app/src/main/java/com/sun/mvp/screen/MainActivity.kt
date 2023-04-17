@@ -17,7 +17,4 @@ class MainActivity : BaseActivity() {
             .replace(R.id.layoutContainer, MoviesFragment.newInstance())
             .commit()
     }
-
-    override fun initData() {
-    }
 }

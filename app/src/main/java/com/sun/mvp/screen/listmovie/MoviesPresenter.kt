@@ -11,9 +11,11 @@ class MoviesPresenter internal constructor(private val movieRepository: MovieRep
     private var mView: MoviesContract.View? = null
 
     override fun onStart() {
+        // No-op
     }
 
     override fun onStop() {
+        // No-op
     }
 
     override fun setView(view: MoviesContract.View?) {
