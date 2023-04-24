@@ -1,16 +1,18 @@
 package com.sun.mvp.data.model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Movie(var backDropImage: String = "",
-                 var overView: String = "",
-                 var vote: Int = 0,
-                 var voteCount: Int = 0,
-                 var title: String = "",
-                 var urlImage: String = "",
-                 var originalTitle: String = "") : Parcelable
+data class Movie(
+    var backDropImage: String = "",
+    var overView: String = "",
+    var vote: Int = 0,
+    var voteCount: Int = 0,
+    var title: String = "",
+    var urlImage: String = "",
+    var originalTitle: String = ""
+) : Parcelable
 
 object MovieEntry {
     const val OVERVIEW = "overview"

@@ -1,5 +1,6 @@
 package com.sun.mvp.data.repository.source.remote.fetchjson
 
+import android.util.Log
 import com.sun.mvp.data.model.MovieEntry
 import com.sun.mvp.utils.ext.notNull
 import org.json.JSONException
@@ -17,7 +18,7 @@ class ParseDataWithJson {
                 }
             }
         } catch (e: JSONException) {
-            e.printStackTrace()
+            Log.e("ParseDataWithJson", "parseJsonToData: ", e)
         }
         return data
     }
@@ -25,13 +26,13 @@ class ParseDataWithJson {
     private fun parseJsonToObject(jsonObject: JSONObject?, keyEntity: String): Any? {
         try {
             jsonObject?.notNull {
-                return when(keyEntity) {
+                return when (keyEntity) {
                     MovieEntry.MOVIES -> ParseJson().movieParseJson(it)
                     else -> null
                 }
             }
         } catch (e: JSONException) {
-            e.printStackTrace()
+            Log.e("ParseDataWithJson", "parseJsonToData: ", e)
         }
         return null
     }
