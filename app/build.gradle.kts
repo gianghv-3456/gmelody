@@ -11,7 +11,6 @@ plugins {
 
 buildscript {
     apply(from = "ktlint.gradle.kts")
-    apply(from = "autodimension.gradle.kts")
 }
 
 android {
