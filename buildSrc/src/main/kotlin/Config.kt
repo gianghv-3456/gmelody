@@ -21,10 +21,12 @@ object Versions {
 
     const val ktlint = "0.47.0"
     const val detekt = "1.22.0"
+
+    const val gson = "2.10.1"
 }
 
 object AppConfigs {
-    const val application_id = "com.sun.structure_android"
+    const val application_id = "com.sun.gmelody"
     const val compile_sdk_version = 33
     const val min_sdk_version = 23
     const val target_sdk_version = 33 // improve later
@@ -79,4 +81,8 @@ object Deps {
 
     // Ktlint
     const val ktlint = "com.pinterest:ktlint:${Versions.ktlint}"
+
+    //Gson
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
+
 }

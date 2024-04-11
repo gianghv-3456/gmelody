@@ -24,7 +24,11 @@ android {
         versionName = AppConfigs.version_name
 
         buildConfigField(
-            "String", "API_KEY", gradleLocalProperties(rootDir).getProperty("api_key")
+            "String", "CLIENT_ID", gradleLocalProperties(rootDir).getProperty("client_id"),
+        )
+
+        buildConfigField(
+            "String", "CLIENT_SECRET", gradleLocalProperties(rootDir).getProperty("client_secret"),
         )
     }
 
@@ -189,4 +193,11 @@ dependencies {
 
     testImplementation(Deps.junit)
     testImplementation(Deps.mockk)
+
+    //Spotify
+    implementation(files("../libs/spotify-app-remote-release-0.8.0.aar"))
+    implementation ("com.spotify.android:auth:1.2.5")
+
+    //GSon
+    implementation(Deps.gson)
 }

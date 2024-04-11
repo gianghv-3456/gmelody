@@ -1,2 +1,2 @@
-rootProject.name = "Structure_Android"
+rootProject.name = "GMelody"
 include (":app")
