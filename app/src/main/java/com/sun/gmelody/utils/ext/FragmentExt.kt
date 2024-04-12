@@ -8,7 +8,7 @@ fun Fragment.addFragment(
     @IdRes containerId: Int,
     fragment: Fragment,
     addToBackStack: Boolean = false,
-    tag: String? = fragment::class.java.simpleName
+    tag: String? = fragment::class.java.simpleName,
 ) {
     activity?.supportFragmentManager?.apply {
         beginTransaction().apply {
@@ -19,7 +19,7 @@ fun Fragment.addFragment(
                 R.anim.slide_in_right,
                 R.anim.slide_in_right,
                 R.anim.slide_out_right,
-                R.anim.slide_out_right
+                R.anim.slide_out_right,
             )
             add(containerId, fragment, tag)
         }.commit()
@@ -30,7 +30,7 @@ fun Fragment.replaceFragment(
     @IdRes containerId: Int,
     fragment: Fragment,
     addToBackStack: Boolean,
-    tag: String? = fragment::class.java.simpleName
+    tag: String? = fragment::class.java.simpleName,
 ) {
     activity?.supportFragmentManager?.apply {
         beginTransaction().apply {

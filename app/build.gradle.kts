@@ -24,11 +24,15 @@ android {
         versionName = AppConfigs.version_name
 
         buildConfigField(
-            "String", "CLIENT_ID", gradleLocalProperties(rootDir).getProperty("client_id"),
+            "String",
+            "CLIENT_ID",
+            gradleLocalProperties(rootDir).getProperty("client_id"),
         )
 
         buildConfigField(
-            "String", "CLIENT_SECRET", gradleLocalProperties(rootDir).getProperty("client_secret"),
+            "String",
+            "CLIENT_SECRET",
+            gradleLocalProperties(rootDir).getProperty("client_secret"),
         )
     }
 
@@ -46,11 +50,11 @@ android {
         create("dev") {
             setDimension("appVariant")
             applicationIdSuffix = ".dev"
-            resValue("string", "app_name", "Structure-Dev")
+            resValue("string", "app_name", "Gmelody-Dev")
         }
         create("prd") {
             setDimension("appVariant")
-            resValue("string", "app_name", "Structure")
+            resValue("string", "app_name", "Gmelody")
             versionCode = AppConfigs.version_code_release
             versionName = AppConfigs.version_name_release
         }
@@ -63,7 +67,8 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
             )
         }
     }
@@ -115,48 +120,53 @@ project.afterEvaluate {
                 // where store all test to run follow second way above
                 group = "coverage"
                 description = "Generate Jacoco coverage reports on the ${sourceName.capitalize()} build."
-                val excludeFiles = setOf(
-                    "androidx/**/*.class",
-                    "**/BR.class",
-                    "**/R.class",
-                    "**/R$*.class",
-                    "**/BuildConfig.*",
-                    "**/Manifest*.*",
-                    "**/*Test*.*",
-                    "android/**/*.*",
-                    "**/*Application*.*",
-                    "**/*Activity*.*",
-                    "**/*Fragment*.*",
-                    "**/*Adapter*.*",
-                    "**/*Dialog*.*",
-                    "**/*Args*.*",
-                    "**/*Companion*.*",
-                    "**/Lambda*.*",
-                    "**/*Lambda*.*",
-                    "**/*Binder*.*",
-                )
+                val excludeFiles =
+                    setOf(
+                        "androidx/**/*.class",
+                        "**/BR.class",
+                        "**/R.class",
+                        "**/R$*.class",
+                        "**/BuildConfig.*",
+                        "**/Manifest*.*",
+                        "**/*Test*.*",
+                        "android/**/*.*",
+                        "**/*Application*.*",
+                        "**/*Activity*.*",
+                        "**/*Fragment*.*",
+                        "**/*Adapter*.*",
+                        "**/*Dialog*.*",
+                        "**/*Args*.*",
+                        "**/*Companion*.*",
+                        "**/Lambda*.*",
+                        "**/*Lambda*.*",
+                        "**/*Binder*.*",
+                    )
 
-                //Explain to Jacoco where are you .class file java and kotlin
+                // Explain to Jacoco where are you .class file java and kotlin
                 classDirectories.setFrom(
                     fileTree("build/intermediates/classes/$sourcePath").exclude(excludeFiles),
-                    fileTree("build/tmp/kotlin-classes/$sourceName").exclude(excludeFiles)
+                    fileTree("build/tmp/kotlin-classes/$sourceName").exclude(excludeFiles),
                 )
-                val coverageSourceDirs = arrayListOf(
-                    "src/main/java", "src/$productFlavorName/java", "src/$buildTypeName/java"
-                )
+                val coverageSourceDirs =
+                    arrayListOf(
+                        "src/main/java",
+                        "src/$productFlavorName/java",
+                        "src/$buildTypeName/java",
+                    )
 
                 additionalSourceDirs.setFrom(files(coverageSourceDirs))
 
-                //Explain to Jacoco where is your source code
+                // Explain to Jacoco where is your source code
                 sourceDirectories.setFrom(files(coverageSourceDirs))
 
-                //execute file .exec to generate data report
+                // execute file .exec to generate data report
                 executionData.setFrom(
                     fileTree(
                         mapOf(
-                            "dir" to layout.buildDirectory, "includes" to listOf("**/*.exec")
-                        )
-                    )
+                            "dir" to layout.buildDirectory,
+                            "includes" to listOf("**/*.exec"),
+                        ),
+                    ),
                 )
 
                 reports {
@@ -194,10 +204,10 @@ dependencies {
     testImplementation(Deps.junit)
     testImplementation(Deps.mockk)
 
-    //Spotify
+    // Spotify
     implementation(files("../libs/spotify-app-remote-release-0.8.0.aar"))
-    implementation ("com.spotify.android:auth:1.2.5")
+    implementation("com.spotify.android:auth:1.2.5")
 
-    //GSon
+    // GSon
     implementation(Deps.gson)
 }

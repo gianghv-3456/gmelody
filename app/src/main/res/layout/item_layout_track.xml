@@ -38,7 +38,7 @@
             app:layout_constraintEnd_toStartOf="@+id/textViewDuration"
             app:layout_constraintStart_toEndOf="@+id/imageThumbnail"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Chúng ta của tương lai" />
+            tools:text="Chúng ta của" />
 
         <TextView
             android:id="@+id/textViewDuration"
