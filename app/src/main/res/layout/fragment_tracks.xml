@@ -1,16 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screen.tracklist.TracksFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTrack"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/layout_playback_container"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_layout_track" />
 
-</FrameLayout>
+
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout_playback_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:importantForAccessibility="no"
+        android:background="@color/color_gray_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="@dimen/dp_8"
+        app:cardElevation="@dimen/dp_8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8"
+            android:background="@color/color_gray_100"
+            android:padding="@dimen/dp_3">
+
+            <TextView
+                android:id="@+id/endTimePoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_indigo_500"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/playback_control_button_panel"
+                tools:text="5:00" />
+
+            <TextView
+                android:id="@+id/startTimePoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_8"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_indigo_500"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/playback_control_button_panel"
+                app:layout_constraintStart_toEndOf="@id/imageThumbnail"
+                tools:text="0:00" />
+
+
+
+            <SeekBar
+                android:id="@+id/song_progress_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_14"
+                android:layout_marginEnd="@dimen/dp_8"
+                app:layout_constraintEnd_toStartOf="@id/endTimePoint"
+                app:layout_constraintTop_toBottomOf="@id/playback_control_button_panel"
+                app:layout_constraintStart_toEndOf="@id/startTimePoint"/>
+
+            <ImageView
+                android:id="@+id/imageThumbnail"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_music_circle"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/color_indigo_500"
+                android:textSize="@dimen/sp_19"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageThumbnail"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Chúng ta của hien tai" />
+
+            <LinearLayout
+                android:id="@+id/playback_control_button_panel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imageThumbnail"
+                app:layout_constraintTop_toBottomOf="@id/textViewTitle">
+
+                <ImageButton
+                    android:id="@+id/previous_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_skip_previous" />
+
+                <ImageButton
+                    android:id="@+id/play_pause_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="@dimen/dp_40"
+                    android:layout_marginEnd="@dimen/dp_40"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_play_arrow" />
+
+                <ImageButton
+                    android:id="@+id/next_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_skip_next" />
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
